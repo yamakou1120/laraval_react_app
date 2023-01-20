@@ -16,7 +16,7 @@ return new class extends Migration
         //todos
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->string('title', 10);
             $table->string('memo',50)->nullable();
             $table->boolean('status');

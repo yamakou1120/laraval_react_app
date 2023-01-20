@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('moneys', function (Blueprint $table) {
+        Schema::create('money', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->string('title', 10);
             $table->string('memo',50)->nullable();
             $table->date('date');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('moneys');
+        Schema::dropIfExists('money');
     }
 };

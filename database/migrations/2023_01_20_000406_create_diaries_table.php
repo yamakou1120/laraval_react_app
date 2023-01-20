@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('diaries', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->string('title')->nullable();
             $table->date('date');
             $table->text('text');
-            $table->string('image_path')->nullable();
+            $table->text('image_path')->nullable();
             $table->timestamps();
         });
     }

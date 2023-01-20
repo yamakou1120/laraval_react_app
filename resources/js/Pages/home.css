@@ -1,0 +1,34 @@
+#display{
+  overflow: hidden;
+  height: 100vh
+}
+.container{
+  width: 90%;
+  margin: auto;
+  padding: 1% 0;
+  height: 85vh;
+  display:flex;
+}
+.four-contents{
+  margin: auto;
+  height: 100%;
+  display: flex;
+  width: 80%
+}
+.left{
+  width: 50%;
+}
+.right{
+  width: 50%;
+}
+.box{
+  background-color: white;
+  border: solid 5px lightgrey;
+  border-radius: 50px;
+  margin: 15px;
+  height: 50%;
+}
+
+.side{
+    width: 20%
+}
