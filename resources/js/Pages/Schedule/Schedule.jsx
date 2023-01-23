@@ -1,6 +1,6 @@
 function Schedule(){
     return(
-        <div>TodoComponent</div>    
+        <div>ScheduleComponent</div>    
     )
 }
 export default Schedule

@@ -1,0 +1,76 @@
+
+#todo{
+    margin: 0 auto;
+    height: 100%;
+
+}
+
+.Todo{
+    text-align: center;
+    font-size: x-large;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    max-height:75%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.row{
+    font-weight: bold;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4%;
+    height: 12%;
+}
+
+.title{
+    font-size: smaller;
+    display: inline;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.check_title{
+    display: flex;
+    padding: auto;
+}
+
+.icon{
+    display: flex;
+}
+
+.del{
+    text-decoration-line: line-through;
+    text-decoration-style: solid;
+    text-decoration-color: black;
+    color: grey;
+}
+
+.button{
+    width: 100%;
+    text-align: right;
+}
+
+.modal_title{
+    margin-bottom: 2%;
+}
+
+input::placeholder{
+    color: grey;
+}
+
+textarea::placeholder{
+    color: grey;
+}
+
+form{
+    overflow: hidden;
+    height: 100%;
+}

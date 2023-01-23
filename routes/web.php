@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +37,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::group(["middleware" => ["auth"]], function() {
-
-   Route::get("/home", [HomeController::class, 'home']);
-
+    Route::get("/home", [HomeController::class, "home"])->name('home');
+    Route::post("/todos/create", [HomeController::class, "create_todo"]);
+    Route::put("/todos/edit/{todo}", [HomeController::class, "edit_todo"]);
+    
 });
 
 require __DIR__.'/auth.php';

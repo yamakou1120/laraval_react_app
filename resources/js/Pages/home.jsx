@@ -10,9 +10,8 @@ import './home.css';
 
 export default function home(props) {
     
-    const { todos,date } = props; // 追加
-    console.log(props);
-    
+    const { todos,date,errors } = props;
+
     return (
         <div id='display'>
             
@@ -28,7 +27,7 @@ export default function home(props) {
                     <div className='four-contents'>
                         <div className='left'>
                             <div className='box'>
-                                <Todo />
+                                <Todo todos={todos} user_id={props.auth.user.id} errors={errors}/>
                             </div>
                             
                             <div className='box'>
