@@ -29,6 +29,10 @@ class HomeController extends Controller
     {
         $input = $request->all();
         $todo->fill($input)->save();
-        
+    }
+    
+    public function delete_todo(Todo $todo)
+    {
+        $todo -> delete();
     }
 }

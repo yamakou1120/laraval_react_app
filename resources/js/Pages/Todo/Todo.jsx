@@ -49,7 +49,16 @@ function Todo(props){
         }
         else{
             router.put(`/todos/edit/${selectTodo.id}`,selectTodo)
-        }}
+        }
+        
+    }
+    
+    const handleDelete = (id)=> {
+        router.delete(`/todos/delete/${id}`, 
+        { onBefore: () => confirm("削除しますか？")}
+        )
+    }
+        
     
     const handleChecked = (id,title,memo,status) =>{
         setSelectTodo({
@@ -99,7 +108,7 @@ function Todo(props){
                                 <EditIcon onClick={()=>openModal(todo.id,todo.title,todo.memo,todo.status)}/>
                             </IconButton>
                             <IconButton>
-                                <DeleteIcon />
+                                <DeleteIcon onClick={()=>handleDelete(todo.id)}/>
                             </IconButton> 
                         </div>
                     </div>
