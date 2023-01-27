@@ -76,6 +76,7 @@ function Todo(props){
         setCheck( check * (-1) )
     }
     
+    //checkされたときに更新。初回は動かさない。
     useEffect(() => {
      if(ref.current) {
       router.put(`/todos/edit/${selectTodo.id}`,selectTodo)

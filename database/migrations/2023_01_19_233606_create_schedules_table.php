@@ -18,10 +18,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('title',15);
-            $table->dateTime('start_time')->nullable();
-            $table->dateTime('end_time')->nullable();
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->string('memo',50)->nullable();
-            $table->boolean('all_day');
+            $table->boolean('allDay');
             $table->timestamps();
         });
     }

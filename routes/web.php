@@ -38,9 +38,17 @@ Route::middleware('auth')->group(function () {
 
 Route::group(["middleware" => ["auth"]], function() {
     Route::get("/home", [HomeController::class, "home"])->name('home');
+    Route::get("/calendar", [HomeController::class, "calendar"])->name('calendar');
+    
     Route::post("/todos/create", [HomeController::class, "create_todo"]);
+    Route::post("/schedules/create",[HomeController::class,"create_schedule"]);
+    
     Route::put("/todos/edit/{todo}", [HomeController::class, "edit_todo"]);
+    Route::put("/schedules/edit/{schedule}",[HomeController::class,"edit_schedule"]);
+    
     Route::delete("/todos/delete/{todo}", [HomeController::class, "delete_todo"]);
+    Route::delete("/schedules/delete/{schedule}", [HomeController::class, "delete_schedule"]);
 });
+    
 
 require __DIR__.'/auth.php';
