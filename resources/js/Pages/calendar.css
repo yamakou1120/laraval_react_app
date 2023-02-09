@@ -11,11 +11,8 @@ main{
     display: flex;
 }
 
-.list{
-    width: 20%;
-}
 .calendar{
-    padding-right: 3%;
+    margin :auto;
     width:80%;
 }
 
@@ -26,6 +23,16 @@ main{
     
 }
 
+.top{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 2%;
+}
+
+.bottom{
+    display: flex;
+    justify-content:space-between;
+}
 
 .date{
     width: 100%;

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Diary extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "user_id",
+        "title",
+        "date",
+        "text",
+        "image_path",
+    ];
 }

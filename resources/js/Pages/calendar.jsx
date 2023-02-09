@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState,useCallback,useEffect} from 'react';
+import {useState,useCallback,useEffect,useRef} from 'react';
 import { router } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import './calendar.css';
@@ -49,6 +49,8 @@ export default function home(props) {
         end: initialDate,
         allDay:false
     })
+    const [drag,setDrag] = useState(1)
+    const ref = useRef(false)
     
     
     
@@ -59,6 +61,7 @@ export default function home(props) {
     const closeModal =() =>{
         setIsOpen(false) 
         setDeleteFlag(false)
+        
     }
     
     const handleDateSelect = useCallback((selectInfo) => {
@@ -121,6 +124,30 @@ export default function home(props) {
         
     }
     
+    const handleDropEvent = (info) =>{
+        console.log(info)
+       
+            setSelectEvent({
+            ...selectEvent,
+            id:info.event.id,
+            title: info.event.title,
+            start: info.event.start,
+            end: info.event.end,
+            memo:info.event.extendedProps.memo,
+            allDay:info.event.allDay
+        })
+        setDrag( drag*(-1))
+    }
+    
+    //drag&dropされたときに更新。初回は動かさない。
+    useEffect(() => {
+     if(ref.current) {
+      router.put(`/schedules/drop/${selectEvent.id}`,selectEvent)
+     }else{
+         ref.current = true
+     }
+    }, [drag])
+    
     const handlesubmit = (e)=>{
         e.preventDefault();
     
@@ -131,7 +158,8 @@ export default function home(props) {
             router.put(`/schedules/edit/${selectEvent.id}`, selectEvent)
         }
         
-        closeModal()
+        closeModal();
+        
     }
     const handleDelete = ()=> {
         router.delete(`/schedules/delete/${selectEvent.id}`, 
@@ -149,9 +177,6 @@ export default function home(props) {
             >
                 
                 <main>
-                    <div className='list'>
-                        event
-                    </div>
                     <div className='calendar'>
                     
                         <FullCalendar
@@ -168,7 +193,7 @@ export default function home(props) {
                             headerToolbar={{
                                 start: "prev,next today",
                                 center: "title",
-                                end: "myCustomButton",
+                                end: "dayGridMonth timeGridWeek timeGridDay myCustomButton",
                             }}
                             dayMaxEvents={true}
                             editable={true}
@@ -177,6 +202,7 @@ export default function home(props) {
                             select={handleDateSelect}
                             eventClick={handleEventClick}
                             events={events}
+                            eventDrop={handleDropEvent}
                          />
                         
                         <Modal
@@ -210,11 +236,13 @@ export default function home(props) {
                         >
                             <div className='modal'>
                                 <form onSubmit ={handlesubmit}>
-                                    <input placehplder='タイトル' type='text' value={selectEvent.title} onChange={(e) =>{setSelectEvent( {...selectEvent,title:e.target.value})} }/>
-                                                                                            
-                                    <CancelIcon onClick={closeModal} />
                                     
-                                    <p>error!</p>
+                                    <div className='top'>
+                                        <input placehplder='タイトル' type='text' value={selectEvent.title} onChange={(e) =>{setSelectEvent( {...selectEvent,title:e.target.value})} }/>
+                                        <CancelIcon onClick={closeModal} />
+                                    </div>
+                                    
+                                    <p className='text-red-600'>{props.errors.title}</p>
                                     <div className='date'>
                                         <div className='start'>
                                              {selectEvent.allDay
@@ -272,19 +300,24 @@ export default function home(props) {
                                         </div>
                                     </div>
                                     
-                                    <textarea value={selectEvent.memo} onChange={(e)=>setSelectEvent({
-                                                        ...selectEvent,
-                                                        memo:e.target.value
-                                                        })} />
+                                    <div className='bottom'>
+                                        <textarea value={selectEvent.memo} onChange={(e)=>setSelectEvent({
+                                                            ...selectEvent,
+                                                            memo:e.target.value
+                                                            })} />
+                                        
+                                        <div>
+                                            <button type={'submit'}>
+                                                <SendIcon />
+                                            </button>
+                                            {deleteFlag
+                                                ?<button onClick={handleDelete}><DeleteIcon /></button>
+                                                :<div></div>
+                                            }
+                                        </div>
+                                    </div>
+                                    </form>
                                     
-                                    <button type={'submit'}>
-                                        <SendIcon />
-                                    </button>
-                                </form>
-                                {deleteFlag
-                                        ?<button onClick={handleDelete}><DeleteIcon /></button>
-                                        :<div></div>
-                                    }
                                 
                                 
                                 

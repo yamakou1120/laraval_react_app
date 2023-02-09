@@ -5,6 +5,9 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TodoController;
+use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\DiaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,15 +42,22 @@ Route::middleware('auth')->group(function () {
 Route::group(["middleware" => ["auth"]], function() {
     Route::get("/home", [HomeController::class, "home"])->name('home');
     Route::get("/calendar", [HomeController::class, "calendar"])->name('calendar');
+    Route::get("/diary/{year}/{month}",[HomeController::class,"diary"])->name('diary');
     
-    Route::post("/todos/create", [HomeController::class, "create_todo"]);
-    Route::post("/schedules/create",[HomeController::class,"create_schedule"]);
+    Route::post("/todos/create", [TodoController::class, "create_todo"]);
+    Route::post("/schedules/create",[ScheduleController::class,"create_schedule"]);
+    Route::post("/diaries/create",[DiaryController::class,"create_diary"]);
     
-    Route::put("/todos/edit/{todo}", [HomeController::class, "edit_todo"]);
-    Route::put("/schedules/edit/{schedule}",[HomeController::class,"edit_schedule"]);
     
-    Route::delete("/todos/delete/{todo}", [HomeController::class, "delete_todo"]);
-    Route::delete("/schedules/delete/{schedule}", [HomeController::class, "delete_schedule"]);
+    Route::put("/todos/edit/{todo}", [TodoController::class, "edit_todo"]);
+    Route::put("/schedules/edit/{schedule}",[ScheduleController::class,"edit_schedule"]);
+    Route::put("/schedules/drop/{schedule}",[ScheduleController::class,"drop_schedule"]);
+    Route::post("/diaries/edit/{diary}",[DiaryController::class,"edit_diary"]);
+    
+    
+    Route::delete("/todos/delete/{todo}", [TodoController::class, "delete_todo"]);
+    Route::delete("/schedules/delete/{schedule}", [ScheduleController::class, "delete_schedule"]);
+    Route::delete("/diaries/delete/{diary}", [DiaryController::class, "delete_diary"]);
 });
     
 

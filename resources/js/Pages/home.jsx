@@ -1,9 +1,9 @@
 import React from "react";
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import Todo from './Todo/Todo';
-import Schedule from './Schedule/Schedule';
-import Money from './Money/Money';
-import Diary from './Diary/Diary';
+import Todo from './Components/Todo/Todo';
+import Schedule from './Components/Schedule/Schedule';
+import Money from './Components/Money/Money';
+import Diary from './Components/Diary/Diary';
 import './home.css';
 
 

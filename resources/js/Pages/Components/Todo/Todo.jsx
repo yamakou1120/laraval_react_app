@@ -50,6 +50,9 @@ function Todo(props){
         else{
             router.put(`/todos/edit/${selectTodo.id}`,selectTodo)
         }
+        if(errors){
+            return;
+        }
         
     }
     

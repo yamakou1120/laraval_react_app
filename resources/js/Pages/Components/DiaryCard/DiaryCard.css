@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+
+form{
+    height:100%;
+}
+
+.card{
+    display: flex;
+    height: 100%;
+    padding: 1%;
+    background-color: white;
+    font-family: 'Yomogi', cursive;
+}
+.left{
+    height:100%;
+    width: 50%;
+}
+.right{
+    height:100%;
+    width: 50%;
+}
+
+.display_title_date{
+    display: flex;
+    justify-content:space-between;
+    height: 10%;
+}
+
+.day{
+    display: flex;
+    text-align: center;
+}
+
+p.note{
+  margin-top: 5%;
+  border:none;
+  width:100%;
+  height: 85%;
+  line-height: 20px;
+  background: linear-gradient(to bottom, #AEDDCD 1px, white 1px);
+  background-size: 100% 20px;
+  background-origin: content-box;
+  background-attachment: local;
+}
+
+.diary_image{
+    height:90%;
+    width: 90%;
+    margin:auto;
+    display: flex;
+    justify-content:center;
+     align-items: center;
+}
+
+.diary_image img{
+    width:auto;
+    height:auto;
+    max-height: 100%;
+    max-width: 100%;
+    
+}
