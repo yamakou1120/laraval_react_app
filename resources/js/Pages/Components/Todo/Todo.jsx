@@ -12,20 +12,21 @@ import Checkbox from '@mui/material/Checkbox';
 import SendIcon from '@mui/icons-material/Send';
 
 function Todo(props){
-
+    
     const ref = useRef(false)
     const [check,setCheck] = useState(1)
     const {todos,user_id ,errors} = props
     const [isOpen,setIsOpen] = useState(false)
     const [selectTodo, setSelectTodo] = useState({
+        year: new Date(props.date).getFullYear(),
+        month:new Date(props.date).getMonth()+1,
+        date:new Date(props.date).getDate(),
         id:'',
         user_id: user_id,
         title: '',
         memo: '',
         status:''
     })
-    
-    console.log(selectTodo)
     
     const openModal =(id, title,memo,status)=>{
         setSelectTodo({

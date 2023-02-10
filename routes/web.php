@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::group(["middleware" => ["auth"]], function() {
-    Route::get("/home", [HomeController::class, "home"])->name('home');
+    Route::get("/home/{year}/{month}/{date}", [HomeController::class, "home"])->name('home');
     Route::get("/calendar", [HomeController::class, "calendar"])->name('calendar');
     Route::get("/diary/{year}/{month}",[HomeController::class,"diary"])->name('diary');
     

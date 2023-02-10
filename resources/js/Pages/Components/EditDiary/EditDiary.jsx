@@ -56,10 +56,7 @@ function EditDiary(props) {
         })
     },[year,month,dt])
     
-    let d=[]
-    for(let i=1;i<32;i++){
-        d.push(i)
-    } 
+    
     let b=[]
     for(let i=2000;i<2050;i++){
         b.push(i)
@@ -68,7 +65,10 @@ function EditDiary(props) {
     for(let i=1;i<13;i++){
         c.push(i)
     }
-    
+    let d=[]
+    for(let i=1;i<32;i++){
+        d.push(i)
+    } 
     
     return (
         <form  onSubmit={handleSubmit} >
@@ -98,7 +98,7 @@ function EditDiary(props) {
                             title:e.target.value
                         })} />
                         <p className="text-red-600">{errors.title}</p>
-                        <div className='date'>
+                        <div className='diary_date'>
                             <Select
                             value={year}
                             onChange={(e)=>setYear(e.target.value)}
@@ -138,7 +138,7 @@ function EditDiary(props) {
                         })
                     }} ></textarea>
                 </div>
-                <div className='icon'>
+                <div className='diary_icon'>
                     <div className='send'><button  type='submit'><SendIcon /></button></div>
                     <button type='button'><DeleteIcon onClick={()=>handleDelete(selectDiary.id)} /></button>
                 </div>

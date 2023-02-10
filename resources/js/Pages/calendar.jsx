@@ -20,7 +20,7 @@ import Checkbox from '@mui/material/Checkbox';
 import SendIcon from '@mui/icons-material/Send';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function home(props) {
+export default function calendar(props) {
     
     const setDate = (dt) =>{
         const now = new Date();
@@ -170,7 +170,7 @@ export default function home(props) {
     
     
     return(
-        <div className='display'>
+        <div id='display'>
              <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
@@ -317,16 +317,10 @@ export default function home(props) {
                                         </div>
                                     </div>
                                     </form>
-                                    
-                                
-                                
-                                
-                                
-                            </div>
+                                </div>
                         </Modal>
-                    
+                        
                     </div>
-                      
                 </main>
             </AuthenticatedLayout>
         </div>

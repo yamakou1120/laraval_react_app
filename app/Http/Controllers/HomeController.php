@@ -13,11 +13,15 @@ use Inertia\Inertia;
 
 class HomeController extends Controller
 {
-    public function home(Todo $todos)
+    public function home(Todo $todos,Schedule $schedules, Diary $diary,$year,$month,$date)
     {
-        $date = date('y/m/d');
+        $datestr = "{$year}-{$month}-{$date}";
+        $date = date('Y-m-d',strtotime($datestr)); 
         $todos = $todos->where('user_id', \Auth::user()->id)->get();
-        return Inertia::render("home",["todos" => $todos, "date"=>$date]);
+        $schedules = $schedules->where('user_id',\Auth::user()->id)->whereDate('start', '=', $date)->orderBy('allDay','desc')->orderBy('start','asc')->get();
+        $diary =  $diary->where('user_id', \Auth::user()->id)->whereDate('date', '=', $date)->get();
+        
+        return Inertia::render("home",["todos" => $todos, "date"=>$date,"schedules"=>$schedules,"diary"=>$diary]);
     }
     
     public function calendar(Schedule $schedules){

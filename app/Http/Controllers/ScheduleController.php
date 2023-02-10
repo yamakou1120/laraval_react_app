@@ -26,7 +26,6 @@ class ScheduleController extends Controller
         $schedule->user_id = $request->input('user_id');
         $schedule->allDay = $request->input('allDay');
         $schedule->save();
-        return redirect("/calendar");
     }
     
     public function edit_schedule(ScheduleRequest $request, Schedule $schedule){
@@ -45,7 +44,6 @@ class ScheduleController extends Controller
         $schedule->user_id = $request->input('user_id');
         $schedule->allDay = $request->input('allDay');
         $schedule->save();
-        return redirect("/calendar");
     }
     
     public function drop_schedule(ScheduleRequest $request, Schedule $schedule){
@@ -56,7 +54,6 @@ class ScheduleController extends Controller
         $schedule->user_id = $request->input('user_id');
         $schedule->allDay = $request->input('allDay');
         $schedule->save();
-        return redirect("/calendar");
     }
     
     public function delete_schedule(Schedule $schedule){

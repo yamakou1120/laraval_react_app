@@ -7,9 +7,6 @@
   font-family: 'Merriweather', serif;
 }
 
-main{
-    display: flex;
-}
 
 .calendar{
     margin :auto;
@@ -35,7 +32,6 @@ main{
 }
 
 .date{
-    width: 100%;
     display: flex;
     justify-content: space-between;
 }

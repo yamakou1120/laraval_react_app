@@ -1,0 +1,31 @@
+.titleDate{
+    display: flex;
+}
+
+.scheduleTitle{
+    
+}
+
+
+.modal{
+    overflow: hidden;
+    height: 95%;
+    margin: 2%;
+    
+}
+
+.top{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 2%;
+}
+
+.bottom{
+    display: flex;
+    justify-content:space-between;
+}
+
+.date{
+    display: flex;
+    justify-content: space-between;
+}

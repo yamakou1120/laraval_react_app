@@ -29,7 +29,7 @@ form{
     width: 100%;
 }
 
-.date{
+.diary_date{
     display: flex;
     
 }
@@ -46,7 +46,7 @@ textarea.note{
   background-attachment: local;
 }
 
-.icon{
+.diary_icon{
     display: flex;
     position: absolute;
     right:0px;

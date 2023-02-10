@@ -20,7 +20,7 @@ class DiaryController extends Controller
         $diary->save();
         $year = date('Y',strtotime($request->input('date')));
         $month = date('n',strtotime($request->input('date')));
-        return redirect("/diary/$year/$month");
+        
     }
     
     
@@ -36,7 +36,6 @@ class DiaryController extends Controller
         $diary->save();
         $year = date('Y',strtotime($request->input('date')));
         $month = date('n',strtotime($request->input('date')));
-        return redirect("/diary/$year/$month");
     }
     
     public function delete_diary(Diary $diary)

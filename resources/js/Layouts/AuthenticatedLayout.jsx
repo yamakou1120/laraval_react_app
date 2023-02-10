@@ -7,7 +7,11 @@ import { Link } from '@inertiajs/react';
 
 export default function Authenticated({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
-
+    const year = new Date().getFullYear()
+    const month = new Date().getMonth()+1
+    const date = new Date().getDate()
+    
+    
     return (
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-white border-b border-gray-100">
@@ -21,8 +25,14 @@ export default function Authenticated({ auth, header, children }) {
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Dashboard
+                                <NavLink active={route().current('home')}>
+                                    <Link href={`/home/${year}/${month}/${date}`}>Home</Link>
+                                </NavLink>
+                                <NavLink active={route().current('calendar')}>
+                                    <Link href="/calendar">Calendar</Link>
+                                </NavLink>
+                                <NavLink active={route().current('diary')}>
+                                    <Link href={`/diary/${year}/${month}`}>Diary</Link>
                                 </NavLink>
                             </div>
                         </div>

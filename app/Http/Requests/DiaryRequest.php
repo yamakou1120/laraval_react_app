@@ -25,6 +25,7 @@ class DiaryRequest extends FormRequest
     {
         return [
             'user_id' => 'required',
+            'date' => 'unique:diaries',
             'title' => 'required|string|max:20',
             'text' => 'required',
         ];
