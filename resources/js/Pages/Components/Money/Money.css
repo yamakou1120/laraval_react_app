@@ -1,0 +1,11 @@
+#money{
+    margin: 0 auto;
+    height: 100%;
+
+}
+
+.content{
+    max-height:75%;
+    overflow: auto;
+    overflow-x: hidden;
+}

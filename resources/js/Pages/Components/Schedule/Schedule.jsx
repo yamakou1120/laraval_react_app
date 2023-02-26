@@ -244,7 +244,7 @@ function Schedule(props){
                                                             memo:e.target.value
                                                             })} />
                                         
-                                        <div>
+                                        <div className="calendar_icon">
                                             <button type={'submit'}>
                                                 <SendIcon />
                                             </button>

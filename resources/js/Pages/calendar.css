@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap');
 
 #display{
-  overflow: hidden;
   height: 100vh;
   font-family: 'Merriweather', serif;
 }
@@ -15,7 +14,7 @@
 
 .modal{
     overflow: hidden;
-    height: 95%;
+    height: 90%;
     margin: 2%;
     
 }
@@ -34,6 +33,12 @@
 .date{
     display: flex;
     justify-content: space-between;
+}
+
+.calendar_icon{
+    position: absolute;
+    right:0px;
+    bottom:0px;
 }
 
 

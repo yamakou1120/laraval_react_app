@@ -30,6 +30,7 @@
         "@mui/icons-material": "^5.11.0",
         "@mui/material": "^5.11.5",
         "@mui/styled-engine-sc": "^5.11.0",
+        "dayjs": "^1.11.7",
         "react-calendar": "^4.0.0",
         "react-datepicker": "^4.8.0",
         "react-modal": "^3.16.1",

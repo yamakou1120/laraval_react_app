@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap');
+
+
+#display{
+  font-family: 'Merriweather', serif;
+}
+
+header{
+  display: flex;
+  margin: auto;
+  justify-content:center;
+  align-items:center;
+}
+
+.money_content{
+  padding-top: 1%;
+  width: 95%;
+  height: 95%;
+  margin: auto;
+  display: flex;
+}
+
+.calendar{
+  width: 45%;
+  margin: 3% auto;
+}
+.left{
+  width: 45%;
+  margin:0 auto;
+}
+
+.dayPlus{
+  color: blue;
+}
+.dayMinus{
+  color:blue;
+}
+
+.content{
+  max-height:75%;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.row{
+    font-weight: bold;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4%;
+    height: 12%;
+}
+
+header{
+  display: flex;
+  margin: auto;
+  justify-content:center;
+  align-items:center;
+}

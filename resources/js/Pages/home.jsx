@@ -14,7 +14,7 @@ import './home.css';
 
 export default function home(props) {
     const ref= useRef(false)
-    const { todos,date,errors,schedules,diary } = props;
+    const { todos,date,errors,schedules,diary,money } = props;
     console.log(props)
     
     const [today,setToday] = useState(new Date(date));
@@ -53,7 +53,7 @@ export default function home(props) {
                             </div>
                             
                             <div className='box'>
-                                <Money />
+                                <Money user_id={props.auth.user.id} date={date} errors={errors} money={money}/>
                             </div>
                         </div>
                         

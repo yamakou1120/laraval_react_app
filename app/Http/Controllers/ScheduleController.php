@@ -9,7 +9,7 @@ use Inertia\Inertia;
 
 class ScheduleController extends Controller
 {
-    public function create_schedule(ScheduleRequest $request, Schedule $schedule){
+    public function create(ScheduleRequest $request, Schedule $schedule){
         
         $schedule->start = date('Y-m-d H:i:s', strtotime($request->input('start')));
         if( $request->input('allDay') == true ){
@@ -28,7 +28,7 @@ class ScheduleController extends Controller
         $schedule->save();
     }
     
-    public function edit_schedule(ScheduleRequest $request, Schedule $schedule){
+    public function edit(ScheduleRequest $request, Schedule $schedule){
         $schedule->start = date('Y-m-d H:i:s', strtotime($request->input('start')));
         if( $request->input('allDay') == true ){
             $schedule-> end = date('Y-m-d H:i:s', strtotime('+1 day'.$request->input('end')));
@@ -46,7 +46,7 @@ class ScheduleController extends Controller
         $schedule->save();
     }
     
-    public function drop_schedule(ScheduleRequest $request, Schedule $schedule){
+    public function drop(ScheduleRequest $request, Schedule $schedule){
         $schedule->start = date('Y-m-d H:i:s', strtotime($request->input('start')));
         $schedule-> end = date('Y-m-d H:i:s', strtotime($request->input('end')));
         $schedule->title = $request->input('title');
@@ -56,7 +56,7 @@ class ScheduleController extends Controller
         $schedule->save();
     }
     
-    public function delete_schedule(Schedule $schedule){
+    public function delete(Schedule $schedule){
         $schedule -> delete();
     }
 }

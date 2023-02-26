@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
+use Carbon\Carbon;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -33,8 +34,8 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $date = Carbon::now();
+        return redirect('/home/' . $date->year . '/' . $date->month . '/' . $date->day);
     }
 
     /**

@@ -1,15 +1,21 @@
+#schedule_component{
+    margin: 0 auto;
+    height: 100%;
+
+}
+
 .titleDate{
     display: flex;
 }
 
-.scheduleTitle{
-    
+.content{
+    max-height:75%;
+    overflow: auto;
+    overflow-x: hidden;
 }
-
-
 .modal{
     overflow: hidden;
-    height: 95%;
+    height: 90%;
     margin: 2%;
     
 }
@@ -28,4 +34,10 @@
 .date{
     display: flex;
     justify-content: space-between;
+}
+
+.calendar_icon{
+    position: absolute;
+    right:0px;
+    bottom:0px;
 }

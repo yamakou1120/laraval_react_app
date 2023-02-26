@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\DiaryController;
+use App\Http\Controllers\MoneyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,21 +44,25 @@ Route::group(["middleware" => ["auth"]], function() {
     Route::get("/home/{year}/{month}/{date}", [HomeController::class, "home"])->name('home');
     Route::get("/calendar", [HomeController::class, "calendar"])->name('calendar');
     Route::get("/diary/{year}/{month}",[HomeController::class,"diary"])->name('diary');
+    Route::get("/money/{year}/{month}",[HomeController::class,"money"])->name('money');
     
-    Route::post("/todos/create", [TodoController::class, "create_todo"]);
-    Route::post("/schedules/create",[ScheduleController::class,"create_schedule"]);
-    Route::post("/diaries/create",[DiaryController::class,"create_diary"]);
-    
-    
-    Route::put("/todos/edit/{todo}", [TodoController::class, "edit_todo"]);
-    Route::put("/schedules/edit/{schedule}",[ScheduleController::class,"edit_schedule"]);
-    Route::put("/schedules/drop/{schedule}",[ScheduleController::class,"drop_schedule"]);
-    Route::post("/diaries/edit/{diary}",[DiaryController::class,"edit_diary"]);
+    Route::post("/todos/create", [TodoController::class, "create"]);
+    Route::post("/schedules/create",[ScheduleController::class,"create"]);
+    Route::post("/diaries/create",[DiaryController::class,"create"]);
+    Route::post("/money/create",[MoneyController::class,"create"]);
     
     
-    Route::delete("/todos/delete/{todo}", [TodoController::class, "delete_todo"]);
-    Route::delete("/schedules/delete/{schedule}", [ScheduleController::class, "delete_schedule"]);
-    Route::delete("/diaries/delete/{diary}", [DiaryController::class, "delete_diary"]);
+    Route::put("/todos/edit/{todo}", [TodoController::class, "edit"]);
+    Route::put("/schedules/edit/{schedule}",[ScheduleController::class,"edit"]);
+    Route::put("/schedules/drop/{schedule}",[ScheduleController::class,"drop"]);
+    Route::post("/diaries/edit/{diary}",[DiaryController::class,"edit"]);
+    Route::put("/money/edit/{money}",[MoneyController::class,"edit"]);
+    
+    
+    Route::delete("/todos/delete/{todo}", [TodoController::class, "delete"]);
+    Route::delete("/schedules/delete/{schedule}", [ScheduleController::class, "delete"]);
+    Route::delete("/diaries/delete/{diary}", [DiaryController::class, "delete"]);
+    Route::delete("/money/delete/{money}", [MoneyController::class, "delete"]);
 });
     
 

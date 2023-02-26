@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class DiaryController extends Controller
 {
-     public function create_diary(DiaryRequest $request, Diary $diary){
+     public function create(DiaryRequest $request, Diary $diary){
         $diary->user_id = $request->input('user_id');
         $diary->title = $request->input('title');
         $diary->date= date('Y-m-d',strtotime($request->input('date')));
@@ -18,13 +18,11 @@ class DiaryController extends Controller
             $diary->image_path = $image_url;
         }
         $diary->save();
-        $year = date('Y',strtotime($request->input('date')));
-        $month = date('n',strtotime($request->input('date')));
         
     }
     
     
-     public function edit_diary(DiaryRequest $request, Diary $diary){
+     public function edit(DiaryRequest $request, Diary $diary){
         $diary->user_id = $request->input('user_id');
         $diary->title = $request->input('title');
         $diary->date= date('Y-m-d',strtotime($request->input('date')));
@@ -34,11 +32,9 @@ class DiaryController extends Controller
             $diary->image_path = $image_url;
         }
         $diary->save();
-        $year = date('Y',strtotime($request->input('date')));
-        $month = date('n',strtotime($request->input('date')));
     }
     
-    public function delete_diary(Diary $diary)
+    public function delete(Diary $diary)
     {
         $diary -> delete();
     }
